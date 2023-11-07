@@ -1,0 +1,424 @@
+body{
+    width: 1600px !important;
+    max-width:100% !important;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out 0.03s;
+    background: #143958;
+    padding: 90px 5%;
+    box-sizing: border-box;
+}
+.main_content{
+    width: 60%;
+    transition: all 0.5s ease-in-out 0.03s;
+    margin: 0 auto;
+    height: 100%;
+}
+
+
+/* image styling */
+.brand-image{
+    margin: 0 auto;
+    width: fit-content;
+    transition: all 0.5s ease-in-out 0.03s;
+    margin-bottom: 50px;
+}
+.brand-image img{
+    width: 340px;
+    transition: all 0.5s ease-in-out 0.03s;
+}
+
+
+/* fonts styling */
+h1, h2{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 36px;
+    font-weight: 400;
+    transition: all 0.5s ease-in-out 0.03s;
+    text-transform: capitalize;
+    margin: 0;
+}
+h2{
+    font-size: 24px;
+    transition: all 0.5s ease-in-out 0.03s;
+    font-weight: 600;
+}
+
+
+/* svg styling */
+.field svg{
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease-in-out 0.03s;
+    fill: white;
+}
+
+/* form styling */
+.field{
+    margin-bottom: 20px;
+    padding: 24px;
+    background-color: #fff;
+    border: 1px solid rgb(218,220,224);
+    border-radius: 8px;
+    display: flex;
+    transition: all 0.5s ease-in-out 0.03s;
+    flex-direction: column;
+}
+.field.heading{
+    padding: 35px;
+    transition: all 0.5s ease-in-out 0.03s;
+}
+
+form label,
+.label{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+    transition: all 0.5s ease-in-out 0.03s;
+    text-transform: capitalize;
+    font-weight: 400;
+    margin-top: 0 !important;
+}
+.label{
+    margin-bottom: 12px;
+    transition: all 0.5s ease-in-out 0.03s;
+}
+
+
+/* upload image styling */
+form .field.image label{
+    background: #6babd0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px;
+    width: fit-content;
+    cursor: pointer;
+    margin-bottom: 0 !important;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+form .field.image label:hover{
+    background: #9fcce6;
+}
+form .field.image input{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+figure{
+    margin: 0 !important;
+    width: 18px !important;
+    margin-right: 10px !important;
+}
+form .field.image label svg{
+    width: 18px;
+}
+form .field.image label span{
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 14px;
+    padding-top: 1.3px;
+}
+
+/* form input styling */
+textarea{
+    max-height: 400px;
+    max-width: 550px;
+}
+textarea,
+input{
+    font-size: 16px;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* form submit styling */
+.submit_field input{
+    background: #6babd0;
+    border: none;
+    cursor: pointer;
+    color: white;
+    text-transform: uppercase;
+    width: fit-content;
+    padding: 15px 30px;
+    font-size: 22px;
+    font-weight: 500;    
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.submit_field input:hover{
+    background: #9fcce6;
+}
+
+/*  file name */
+.file-name{
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+
+@media (max-width: 1920px){
+    body{
+        padding: 70px 5%;
+    }
+    .main_content{
+        width: 70%;
+    }
+    .brand-image{
+        margin-bottom: 45px;
+    }
+    .brand-image img{
+        width: 320px;
+    }
+    h1, h2{
+        font-size: 34px;
+    }
+    h2{
+        font-size: 23px;
+    }
+    .field{
+        margin-bottom: 20px;
+        padding: 22px;
+    }
+    .field.heading{
+        padding: 33px;
+    }
+    form label,
+    .label{
+        font-size: 23px;
+        margin-bottom: 18px;
+    }
+    .label{
+        margin-bottom: 12px;
+    }
+}
+@media (max-width: 1280px){
+    body{
+        padding: 60px 5%;
+    }
+    .main_content{
+        width: 80%;
+    }
+    .brand-image{
+        margin-bottom: 40px;
+    }
+    .brand-image img{
+        width: 280px;
+    }
+    h1, h2{
+        font-size: 32px;
+    }
+    h2{
+        font-size: 22px;
+    }
+    .field{
+        margin-bottom: 18px;
+        padding: 20px;
+    }
+    .field.heading{
+        padding: 30px;
+    }
+    form label,
+    .label{
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+    .label{
+        margin-bottom: 10px;
+    }
+}
+@media (max-width: 990px){
+    body{
+        padding: 50px 4%;
+    }
+    .main_content{
+        width: 90%;
+    }
+    .brand-image{
+        margin-bottom: 35px;
+    }
+    .brand-image img{
+        width: 260px;
+    }
+    h1, h2{
+        font-size: 30px;
+    }
+    h2{
+        font-size: 21px;
+    }
+    .field{
+        margin-bottom: 16px;
+        padding: 18px;
+    }
+    .field.heading{
+        padding: 27px;
+    }
+    form label,
+    .label{
+        font-size: 21px;
+        margin-bottom: 15px;
+    }
+    .label{
+        margin-bottom: 9px;
+    }
+}
+@media (max-width: 750px){
+    body{
+        padding: 50px 2.5%;
+    }
+    .main_content{
+        width: 100%;
+    }
+    .brand-image{
+        margin-bottom: 30px;
+    }
+    .brand-image img{
+        width: 240px;
+    }
+    h1, h2{
+        font-size: 28px;
+    }
+    h2{
+        font-size: 20px;
+    }
+    .field{
+        margin-bottom: 16px;
+        padding: 16px;
+    }
+    .field.heading{
+        padding: 25px;
+    }
+    form label,
+    .label{
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+    .label{
+        margin-bottom: 8px;
+    }
+    textarea,
+    input{
+        font-size: 15px;
+        padding: 9px;
+    }
+
+    /* form submit styling */
+    .submit_field input{
+        padding: 13px 25px;
+        font-size: 20px;
+    }
+}
+@media (max-width: 470px){
+    body{
+        padding: 45px 2.5%;
+    }
+    .main_content{
+        width: 100%;
+    }
+    .brand-image{
+        margin-bottom: 20px;
+    }
+    .brand-image img{
+        width: 210px;
+    }
+    h1, h2{
+        font-size: 28px;
+    }
+    h2{
+        font-size: 19px;
+    }
+    .field{
+        margin-bottom: 15px;
+        padding: 14px;
+    }
+    .field.heading{
+        padding: 23px;
+    }
+    form label,
+    .label{
+        font-size: 20px;
+        margin-bottom: 13px;
+    }
+    .label{
+        margin-bottom: 7px;
+    }
+    textarea,
+    input{
+        font-size: 15px;
+        padding: 8px;
+    }
+
+    /* form submit styling */
+    .submit_field input{
+        padding: 12px 23px;
+        font-size: 19px;
+    }
+}
+
+
+
+/* Styles for the "please wait" modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+  }
+  
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 5px;    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.modal-content p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+.modal-content button{
+    font-family: 'Roboto', sans-serif;
+    background: #6babd0;
+    border: none;
+    cursor: pointer;
+    color: white;
+    text-transform: uppercase;
+    width: fit-content;
+    margin-top: 10px;
+    padding: 15px 30px;
+    font-size: 17px;
+    font-weight: 500;    
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.modal-content.please_wait{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+  
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

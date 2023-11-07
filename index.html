@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Traitement Bagage déporté</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="main_content">
+        <div class="modal" id="pleaseWaitModal" style="display: none;">
+            <div class="modal-content please_wait">
+                <div class="loader"></div>
+                <p>Please wait...</p>
+            </div>
+        </div>
+        <div class="modal" id="successModal" style="display: none;">
+            <div class="modal-content">
+                <p>Form submitted successfully</p>
+
+                <button id="okButton">OK</button>
+            </div>
+        </div>
+        <div class="brand-image">
+            <img src="images/brand_logo.svg" alt="Brand Logo">
+        </div>
+        <div class="field heading">
+            <h1>Traitement Bagage déporté</h2>
+        </div>
+        <!-- <form
+            action="https://script.google.com/macros/s/AKfycbziDXvc6Ehjyf81SPVSoIoUjFUF7_yhmEIYVf7_E70RoyVOgo78nIdn1ejlla24YnVv/exec"
+            method="post" enctype="multipart/form-data"> -->
+        <!-- <form id="upload-form" enctype="multipart/form-data"> -->
+        <!-- Image Upload Fields -->
+        <form id="myForm">
+
+            <div class="field image">
+                <p class="label">Photo du tag bagage (1)</p>
+                <input type="file" id="image_url1" name="image_url1" accept="image/*" required>
+                <label for="image_url1">
+                    <figure>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                            <path
+                                d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z">
+                            </path>
+                        </svg>
+                    </figure>
+                    <span>Choisissez un fichier…</span>
+                </label>
+                <span class="file-name">No file selected</span>
+            </div>
+            <div class="field image">
+                <p class="label">Photo du tag bagage (2)</p>
+                <input type="file" id="image_url2" name="image_url2" accept="image/*" required>
+                <label for="image_url2">
+                    <figure>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                            <path
+                                d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z">
+                            </path>
+                        </svg>
+                    </figure>
+                    <span>Choisissez un fichier…</span>
+                </label>
+                <span class="file-name">No file selected</span>
+            </div>
+            <div class="field image">
+                <p class="label">Photo de la valise de plein pied</p>
+                <input type="file" id="image_url3" name="image_url3" accept="image/*" required>
+                <label for="image_url3">
+                    <figure>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                            <path
+                                d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z">
+                            </path>
+                        </svg>
+                    </figure>
+                    <span>Choisissez un fichier…</span>
+                </label>
+                <span class="file-name">No file selected</span>
+            </div>
+
+            <!-- Textarea -->
+            <div class="field">
+                <label for="comments">Commentaires ? (ex: Dommages apparents, date d'arrivée si différente,
+                    etc.)</label>
+                <textarea id="comments" name="comments" rows="4" cols="50"
+                    placeholder="commence à écrire ici..."></textarea>
+            </div>
+
+            <!-- label field -->
+            <div class="field">
+                <h2>MODE MANUEL => photo indispo</h2>
+            </div>
+
+            <!-- Full Name -->
+            <div class="field">
+                <label for="full_name">Nom du passager (NM)</label>
+                <input type="text" id="full_name" name="full_name" placeholder="Entrez le nom" required>
+            </div>
+
+            <!-- tag field -->
+            <div class="field">
+                <label for="tag_bagage">Tag Bagage (TN)</label>
+                <input type="text" id="tag_bagage" name="tag_bagage" placeholder="saisir l'étiquette de bagage"
+                    required>
+            </div>
+
+            <!-- route field -->
+            <div class="field">
+                <label for="routing">Routing (BR)</label>
+                <input type="text" id="routing" name="routing" placeholder="entrer l'itinéraire" required>
+            </div>
+
+            <!-- Date Field -->
+            <div class="field">
+                <label for="date">FlightDate (FD)</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="field submit_field">
+                <input type="submit" value="Soumettre">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

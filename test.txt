@@ -1,0 +1,291 @@
+
+
+// function doOptions(e) {
+//     var response = ContentService.createTextOutput();
+//     response.setMimeType(ContentService.MimeType.JSON);
+//     response.addHeader("Access-Control-Allow-Methods", "POST");
+//     response.addHeader("Access-Control-Allow-Headers", "Content-Type");
+//     response.addHeader("Access-Control-Max-Age", "60");
+//     response.addHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500"); // Replace with the actual origin you want to allow
+
+//     return response;
+// }
+
+// function doPost(e) {
+    
+//     // Access form parameters using e.postData.contents
+//     var postData = e.postData.contents;
+//     // Extract data from the post data
+//     var form = JSON.parse(postData);
+
+//     var name = form.name; // Use "name" instead of form.get("name")
+//     var image = e.image_url1; 
+    
+//     var folderId = "1DivefBJp3R9sEP1ajYebucxESFz23c4O"; // Replace with the ID of the Google Drive folder where you want to store images
+
+//     // Save the image to Google Drive
+//     var file = DriveApp.createFile(Utilities.base64Decode(image));
+//     var driveFile = DriveApp.getFileById(file.getId());
+//     driveFile.moveTo(DriveApp.getFolderById(folderId));
+
+//     // Append the name and image URL to Google Sheets
+//     var sheet = SpreadsheetApp.openById("1Rh6UwkpXfsokOALeqwT7TkcbYD336xpQk3k1xtkY1p0").getActiveSheet();
+//     sheet.appendRow([new Date(), name, driveFile.getUrl()]);
+
+//     // return ContentService.createTextOutput("Form submitted successfully.");
+//     // Create an HTTPResponse object
+//     var response = ContentService.createTextOutput("Form submitted successfully.");
+
+//     // Set the CORS headers
+//     response.setMimeType(ContentService.MimeType.JSON);
+//     response.addHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
+
+// return ContentService.createTextOutput(JSON.stringify({status: "success", "data":response})).setMimeType(ContentService.MimeType.JSON);
+//     //return response;
+// }
+
+
+
+
+
+
+
+
+
+
+// function doPost(e) {
+//   var sheet = SpreadsheetApp.openById("1Rh6UwkpXfsokOALeqwT7TkcbYD336xpQk3k1xtkY1p0").getActiveSheet(); // Replace with your spreadsheet ID
+//   var data = e.parameter;
+
+//   var timestamp = new Date();
+//   var fullName = data.full_name;
+//   var tag_bagage = data.tag_bagage;
+//   var routing = data.routing;
+//   var date = data.date;
+//   var comments = data.comments;
+
+//    // Access uploaded files
+//   var fileBlob1 = e.parameter.image_url1; // "image_url1" matches the name attribute of the file input
+//   var fileBlob2 = e.parameter.image_url2;
+//   var fileBlob3 = e.parameter.image_url3;
+
+
+// if (data.image_url1 && data.image_url1.length > 0) {
+//     // The image field is not empty; it contains data
+//     // You can proceed to process the image data or save it
+    
+  
+//   // let obj = JSON.parse(e.parameter.contents);
+//   // This line decodes the base64-encoded image data and assigns it to a variable called "dcode"
+//   let dcode = Utilities.base64Decode(data.image_url1);
+//   // This line creates a new blob from the decoded data, with the specified MIME type and filename, and assigns it to a variable called "blob"
+//   // Create a blob from the image bytes
+//   var blob = Utilities.newBlob(dcode, "image/jpeg", "image.jpg");
+//   // let blob = Utilities.newBlob(dcode);
+
+//   var folderId = "1DivefBJp3R9sEP1ajYebucxESFz23c4O"; // Replace with the ID of the Google Drive folder where you want to store images
+
+//   // Save the image to Google Drive
+//   // This line creates a new file in the user's Google Drive from the blob data and assigns it to a variable called "newFile"
+//   let newFile = DriveApp.createFile(blob);
+//   // var file = DriveApp.createFile(Utilities.base64Decode(image));
+//   var driveFile = DriveApp.getFileById(newFile.getId());
+//   driveFile.moveTo(DriveApp.getFolderById(folderId));
+//  // Save the files to Google Drive
+//   // var imageUrl1 = saveFile(fileBlob1, "Dirby Form Response");
+//   // // var imageUrl2 = saveFile(fileBlob2, "Dirby Form Response");
+//   // // var imageUrl3 = saveFile(fileBlob3, "Dirby Form Response");
+
+//   // var imageUrl1 = fileBlob1;
+//   // var imageUrl2 = fileBlob2;
+//   // var imageUrl3 = fileBlob3;
+
+//   // This line sets the sharing permissions of the new file to "anyone with the link can view", and gets a URL for downloading the file, which is assigned to a variable called "link"
+//   let link = newFile.setSharing(DriveApp.Access.ANYONE_WITH_LINK,DriveApp.Permission.VIEW).getDownloadUrl();
+  
+//   // Log the image data for debugging
+//     Logger.log("Received image data: " + data.image_url1.length + " bytes");
+//   } else {
+//     // The image field is empty
+//     Logger.log("No image data received" + "Received e data: " + JSON.stringify(e, null, 2) + " bytes");
+//   }
+  
+//   // This line gets the index of the last row in the sheet and assigns it to a variable called "lr"
+//   // let lr = sheet.getLastRow();
+//   // // This line sets a formula in the first column of the next row after the last row, which displays the image using the specified URL, and assigns it to a range
+//   // sheet.getRange(lr+1,1).setFormula(`=IMAGE("${link}")`);
+
+//   // sheet.appendRow([timestamp, fullName, date, comments, `=IMAGE("${link}")`, imageUrl2, imageUrl3, tag_bagage, routing]);
+//   sheet.appendRow([timestamp, fullName, date, comments, tag_bagage, routing]);
+
+//   return ContentService.createTextOutput("Form submitted successfully.");
+// }
+
+// function saveFile(fileBlob, folderName) {
+//   var folder = DriveApp.getFoldersByName(folderName).next();
+//   var file = folder.createFile(fileBlob);
+//   return file.getUrl();
+// }
+
+
+
+
+
+// function doOptions(e) {
+//     var response = ContentService.createTextOutput();
+//     response.setMimeType(ContentService.MimeType.JSON);
+//     response.addHeader("Access-Control-Allow-Methods", "POST");
+//     response.addHeader("Access-Control-Allow-Headers", "Content-Type");
+//     response.addHeader("Access-Control-Max-Age", "60");
+//     response.addHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500"); // Ensure it matches your origin
+
+//     return response;
+// }
+
+
+// function doOptions(e) {
+//   // Handle the preflight request
+//   var response = ContentService.createTextOutput();
+//   response.setMimeType(ContentService.MimeType.JSON);
+
+//   // Set the 'Access-Control-Allow-Origin' header to match your client's origin
+//   response.appendHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+//   // Set other required headers for preflight
+//   response.appendHeader('Access-Control-Allow-Methods', 'POST');
+//   response.appendHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+//   // Return an HTTP OK status code for the preflight request
+//   return response;
+// }
+
+   
+  
+
+    // This line declares a variable called "app" and assigns it a reference to a Google Spreadsheet specified by its URL
+    // let app = SpreadsheetApp.openByUrl("Your_Google_Sheet_URL");
+    // This line declares a variable called "sheet" and assigns it a reference to a specific sheet within the spreadsheet specified by its name
+    // let sheet = app.getSheetByName("Your_Google_Sheet_Name");
+// function doOptions(e) {
+//   // Handle the preflight request
+//   var headers = {
+//     "Access-Control-Allow-Origin": "http://127.0.0.1:5500",
+//     "Access-Control-Allow-Methods": "POST",
+//     "Access-Control-Allow-Headers": "Content-Type"
+//   };
+
+//   return ContentService.createTextOutput()
+//     .setMimeType(ContentService.MimeType.JSON)
+//     .setHeaders(headers);
+// }
+// function doOptions(e) {
+//   // Handle the preflight request
+//   var headers = {
+//     "Access-Control-Allow-Origin": "*",
+//     "Access-Control-Allow-Methods": "POST",
+//     "Access-Control-Allow-Headers": "Content-Type"
+//   };
+
+//   return ContentService.createTextOutput()
+//     .setHeaders(headers);
+// }
+      var sheet = SpreadsheetApp.openById("1Rh6UwkpXfsokOALeqwT7TkcbYD336xpQk3k1xtkY1p0").getActiveSheet(); // Replace with your spreadsheet ID
+    // This function is called when a POST request is made to the URL of the script
+    function doPost(e){
+      var allowedOrigins = ["http://127.0.0.1:5500/index.html", "http://127.0.0.1:5500"];
+      var origin = e.parameters.origin;
+      
+      // if (allowedOrigins.includes(origin)) {
+        Logger.log("allowed origin");
+        try{
+
+          var timestamp = new Date();
+          
+
+
+          // This line parses the request data as a JSON object and assigns it to a variable called "obj"
+          let obj = JSON.parse(e.postData.contents);
+          var fullName = obj.custname;
+          // var tag_bagage = data.tag_bagage;
+          // var routing = data.routing;
+          // var date = data.date;
+          // var comments = data.comments;
+
+
+
+          // This line decodes the base64-encoded image data and assigns it to a variable called "dcode"
+          let dcode = Utilities.base64Decode(obj.base64);
+          // This line creates a new blob from the decoded data, with the specified MIME type and filename, and assigns it to a variable called "blob"
+          let blob = Utilities.newBlob(dcode,obj.type,obj.name);
+
+
+
+          var folderId = "1DivefBJp3R9sEP1ajYebucxESFz23c4O"; // Replace with the ID of the Google Drive folder where you want to store images
+
+          // Save the image to Google Drive
+          // This line creates a new file in the user's Google Drive from the blob data and assigns it to a variable called "newFile"
+          let newFile = DriveApp.createFile(blob);
+          // var file = DriveApp.createFile(Utilities.base64Decode(image));
+          var driveFile = DriveApp.getFileById(newFile.getId());
+          driveFile.moveTo(DriveApp.getFolderById(folderId));
+
+
+          // This line sets the sharing permissions of the new file to "anyone with the link can view", and gets a URL for downloading the file, which is assigned to a variable called "link"
+          let link = newFile.setSharing(DriveApp.Access.ANYONE_WITH_LINK,DriveApp.Permission.VIEW).getDownloadUrl();
+          // This line gets the index of the last row in the sheet and assigns it to a variable called "lr"
+          let lr = sheet.getLastRow();
+          // This line sets a formula in the first column of the next row after the last row, which displays the image using the specified URL, and assigns it to a range
+          
+          // sheet.getRange(lr+1,1).setFormula(`=IMAGE("${link}")`);
+          // sheet.getRange(lr+1,2).setFormula(`=IMAGE("${link}")`);
+          sheet.appendRow([timestamp, fullName, `=IMAGE("${link}")`]);
+          // This line returns a plain text response indicating that the image was uploaded
+
+          // Allow the request
+          var response = ContentService.createTextOutput("image uploaded");
+
+
+          // response.setMimeType(ContentService.MimeType.JSON);
+
+          // Set the 'Access-Control-Allow-Origin' header to match your client's origin
+          // response.appendHeader('Access-Control-Allow-Origin', '*');
+
+          // // Allow the following HTTP methods
+          // response.appendHeader('Access-Control-Allow-Methods', 'POST');
+
+          // // Allow the following headers in the actual request
+          // response.appendHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+          // return response;
+
+          return ContentService.createTextOutput("Form submitted successfullllllly!!!!!." + JSON.stringify(e, null, 2));
+
+
+
+
+          // response.setMimeType(ContentService.MimeType.TEXT);
+          // response.setHeader("Access-Control-Allow-Origin", origin);
+          // return response;
+          // return ContentService.createTextOutput(JSON.stringify({status: "success", "data": "my-data"})).setMimeType(ContentService.MimeType.JSON);
+          // return ContentService.createTextOutput("image uploaded")
+        }catch(err){
+          // This line returns an error message as a plain text response if there was an error during the upload process
+          // return ContentService.createTextOutput(err);
+          return ContentService.createTextOutput("Form submitted successfully.");
+        }
+        // } else {
+        //   // Reject the request
+        //   return ContentService.createTextOutput("Unauthorized").setMimeType(ContentService.MimeType.TEXT);
+        // }
+    }
+  
+
+
+
+
+
+
+
+
+
+
+
